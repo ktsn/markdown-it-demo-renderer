@@ -21,7 +21,7 @@ The renderer will generate the following HTML (added some comments and indentati
 </div>
 
 <!-- Escaped code block (same as the output of normal renderer) -->
-<pre><code class="language-pug">
+<pre><code class="language-html">
   &lt;h1&gt;Hello!&lt;/h1&gt;
 </code></pre>
 ```
