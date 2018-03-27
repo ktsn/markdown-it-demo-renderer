@@ -2,8 +2,14 @@
   "name": "markdown-it-demo-renderer",
   "version": "0.0.0",
   "author": "katashin",
-  "description": "",
-  "keywords": [],
+  "description": "markdown-it renderer to render live demo over each code block fence",
+  "keywords": [
+    "markdown-it",
+    "markdown",
+    "renderer",
+    "demo",
+    "preview"
+  ],
   "license": "MIT",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
