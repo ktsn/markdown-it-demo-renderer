@@ -6,9 +6,11 @@
 
 This markdown-it plugin allows you to render live demo over each code block fence. For example, if you have the following HTML code block:
 
+````md
 ```html
 <h1>Hello!</h1>
 ```
+````
 
 The renderer will generate the following HTML (added some comments and indentations for readability):
 
