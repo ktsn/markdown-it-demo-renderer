@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Demo Renderer should be specified preprocessor 1`] = `
+"<div class=\\"markdown-demo\\"><h1 class=\\"title\\">Hello World!</h1></div><pre><code class=\\"language-pug\\">h1.title Hello World!
+</code></pre>
+"
+`;
+
+exports[`Demo Renderer should not render when unsupported language 1`] = `
+"<pre><code class=\\"language-js\\">function sum(a, b) {
+  return a + b
+}
+</code></pre>
+"
+`;
+
+exports[`Demo Renderer should render demo container over fence 1`] = `
+"<div class=\\"markdown-demo\\"><p>Hello!</p>
+</div><pre><code class=\\"language-html\\">&lt;p&gt;Hello!&lt;/p&gt;
+</code></pre>
+"
+`;
+
+exports[`Demo Renderer should rewrite container class name 1`] = `
+"<div class=\\"test-class-name\\"><h1>Test</h1>
+</div><pre><code class=\\"language-html\\">&lt;h1&gt;Test&lt;/h1&gt;
+</code></pre>
+"
+`;
