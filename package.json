@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-demo-renderer",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "katashin",
   "description": "markdown-it renderer to render live demo over each code block fence",
   "keywords": [
