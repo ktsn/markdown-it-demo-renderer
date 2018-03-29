@@ -69,6 +69,34 @@ const md = new MarkdownIt()
   })
 ```
 
+### Preprocessor
+
+markdown-it-demo-renderer supports `html` code block to render live demo in default. You can add other html preprocessors by passing `preprocessors` option. `preprocessors` expects transform functions that receive the original code string and expect to return transformed html string for each language.
+
+```js
+const MarkdownIt = require('markdown-it')
+const pug = require('pug')
+
+const md = new MarkdownIt()
+  .use(require('markdown-it-demo-renderer'), {
+    preprocessors: {
+      // Enable to show live demo for `pug` code block
+      pug: code => {
+        // Return compiled html code
+        return pug.render(code)
+      }
+    }
+  })
+
+const code = `
+\`\`\`pug
+h1 Hello!
+\`\`\`
+`
+
+console.log(md.render(code))
+```
+
 ## License
 
 MIT

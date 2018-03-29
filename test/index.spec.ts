@@ -32,7 +32,7 @@ describe('Demo Renderer', () => {
 
   it('should be specified preprocessor', () => {
     const md = new MarkdownIt().use(plugin, {
-      languages: {
+      preprocessors: {
         pug: pug.render
       }
     })
