@@ -4,8 +4,8 @@ namespace plugin {
   export type Preprocessor = (code: string) => string
 
   export interface RendererParams {
-    demoContainerClass?: string
     languages?: Record<string, Preprocessor>
+    wrap?: (demo: string, code: string) => string
   }
 }
 
@@ -13,9 +13,13 @@ const defaultLanguages: Record<string, plugin.Preprocessor> = {
   html: code => code
 }
 
+function defaultWrap(demo: string, code: string): string {
+  return '<div class="markdown-demo">' + demo + '</div>' + code
+}
+
 function plugin(md: MarkdownIt, params: plugin.RendererParams = {}): void {
   const defaultRenderer = md.renderer.rules.fence
-  const demoContainerClass = params.demoContainerClass || 'markdown-demo'
+  const wrap = params.wrap || defaultWrap
   const languages = {
     ...defaultLanguages,
     ...(params.languages || {})
@@ -35,12 +39,9 @@ function plugin(md: MarkdownIt, params: plugin.RendererParams = {}): void {
       return defaultRenderer(tokens, idx, options, env, self)
     }
 
-    const html = preprocess(token.content)
+    const demo = preprocess(token.content)
 
-    return (
-      `<div class="${demoContainerClass}">${html}</div>` +
-      defaultRenderer(tokens, idx, options, env, self)
-    )
+    return wrap(demo, defaultRenderer(tokens, idx, options, env, self) as any)
   }
 }
 

@@ -50,6 +50,25 @@ const code = `
 console.log(md.render(code))
 ```
 
+### Customize Wrapper Element
+
+Sometimes you may want to custom the wrapper element of a live demo and a code example. In that case, you specify `wrap` option when apply the renderer. The `wrap` option should be a function that receives a live demo and a code example html strings and return wrapped entire html string.
+
+```js
+const MarkdownIt = require('markdown-it')
+const md = new MarkdownIt()
+  .use(require('markdown-it-demo-renderer'), {
+    wrap: (demo, code) => {
+      return (
+        // Wrap demo html string with `.example-demo`
+        '<div class="example-demo">' + demo + '</div>' +
+        // Wrap code html string with `.example-code`
+        '<div class="example-code">' + code + '</div>'
+      )
+    }
+  })
+```
+
 ## License
 
 MIT
